@@ -1,5 +1,5 @@
 const { JSDOM } = require('jsdom');
-const extractQDMdetails = require('./helpers/extractQDMdetails');
+const extractQDMdetails = require('../utility/helpers/extractQDMdetails');
 
 class HtmlToJsonConverter {
     /**
@@ -194,6 +194,31 @@ class HtmlToJsonConverter {
     
     return extractQDMdetails(rows);
   }
+  /**
+   * Extracts Intervention from the HTML document.
+   * @returns {Array<Object>} - The extracted Intervention.
+   */
+  extractIntervention() {
+    const panels = this.doc.querySelectorAll('.panel-default');
+
+    let interventionPanel = null;
+    for (let i = 0; i<panels.length; i++) {
+        const title = panels[i].querySelector('div.panel-heading h3.panel-title')?.textContent;
+        if (title?.includes('Medication')) {
+          interventionPanel = panels[i];
+            break;
+        }
+    }
+
+    if (!interventionPanel) {
+        console.error('Intervention panel not found');
+        return [];
+    }
+
+    const rows = interventionPanel.querySelectorAll('.div-table-body .div-table-row.narr_tr');
+    
+    return extractQDMdetails(rows);
+  }
 
   /**
    * Extracts PatientCharacteristicExpired from the HTML document.
@@ -356,6 +381,7 @@ class HtmlToJsonConverter {
     const encounters = this.extractEncounters();
     const screening = this.extractScreening();
     const medication = this.extractMedication();
+    const intervention = this.extractIntervention();
     const characteristicExpired = this.extractPatientCharacteristicExpired();
     const characteristicPayer = this.extractPatientCharacteristicPayer();
     const characteristicBirthDate = this.extractPatientCharacteristicBirthdate();
@@ -369,6 +395,7 @@ class HtmlToJsonConverter {
       encounters,
       screening,
       medication,
+      intervention,
       characteristicExpired,
       characteristicPayer,
       characteristicBirthDate,
