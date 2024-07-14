@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const HtmlToJsonConverter = require('./src/HtmlToJsonConverter');
+const HtmlToJsonConverter = require('./src/parseHtmlToJson/HtmlToJsonConverter');
 
 /**
  * Reads and converts multiple HTML files from a directory to JSON.
  * @param {string} inputDirectoryPath - The path to the directory containing HTML files.
  * @param {string} outputDirectoryPath - The path to the directory where JSON files will be saved.
  */
-function processHtmlFilesFromDirectory(inputDirectoryPath, outputDirectoryPath) {
+const processHtmlFilesFromDirectory = (inputDirectoryPath, outputDirectoryPath) => {
     fs.readdir(inputDirectoryPath, (err, files) => {
         if (err) {
             console.error(`Error reading directory ${inputDirectoryPath}:`, err);
@@ -53,6 +53,8 @@ function processHtmlFilesFromDirectory(inputDirectoryPath, outputDirectoryPath) 
     });
 }
 
-const inputDirectoryPath = './src/html_files';
-const outputDirectoryPath = './src/output_json';
+const inputDirectoryPath = './src/utility/data/html_files';
+const outputDirectoryPath = './src/utility/data/output_json';
 processHtmlFilesFromDirectory(inputDirectoryPath, outputDirectoryPath);
+
+module.exports = processHtmlFilesFromDirectory;
