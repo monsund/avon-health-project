@@ -108,7 +108,7 @@ class HtmlToJsonConverter {
     }
 
     if (!diagnosesPanel) {
-        console.error('Diagnosis panel not found');
+        // console.error('Diagnosis panel not found');
         return [];
     }
 
@@ -134,7 +134,7 @@ class HtmlToJsonConverter {
     }
 
     if (!encountersPanel) {
-        console.error('Encounter panel not found');
+        // console.error('Encounter panel not found');
         return [];
     }
 
@@ -160,7 +160,7 @@ class HtmlToJsonConverter {
     }
 
     if (!screeningPanel) {
-        console.error('Screening panel not found');
+        // console.error('Screening panel not found');
         return [];
     }
 
@@ -186,7 +186,7 @@ class HtmlToJsonConverter {
     }
 
     if (!medicationPanel) {
-        console.error('Medication panel not found');
+        // console.error('Medication panel not found');
         return [];
     }
 
@@ -211,7 +211,7 @@ class HtmlToJsonConverter {
     }
 
     if (!interventionPanel) {
-        console.error('Intervention panel not found');
+        // console.error('Intervention panel not found');
         return [];
     }
 
@@ -237,7 +237,7 @@ class HtmlToJsonConverter {
     }
 
     if (!charExpiredPanel) {
-      console.error('Characteristics Expired panel not found');
+      // console.error('Characteristics Expired panel not found');
       return [];
     }
     const rows = charExpiredPanel.querySelectorAll('.div-table-body .div-table-row.narr_tr');
@@ -262,7 +262,7 @@ class HtmlToJsonConverter {
     }
 
     if (!charPayerPanel) {
-      console.error('Characteristics Payer panel not found');
+      // console.error('Characteristics Payer panel not found');
       return [];
     }
     const rows = charPayerPanel.querySelectorAll('.div-table-body .div-table-row.narr_tr');
@@ -288,7 +288,7 @@ class HtmlToJsonConverter {
     }
 
     if (!charSexPanel) {
-      console.error('Characteristics Sex panel not found');
+      // console.error('Characteristics Sex panel not found');
       return [];
     }
     const rows = charSexPanel.querySelectorAll('.div-table-body .div-table-row.narr_tr');
@@ -313,7 +313,7 @@ class HtmlToJsonConverter {
     }
 
     if (!charBirthDatePanel) {
-      console.error('Characteristics Expired panel not found');
+      // console.error('Characteristics Expired panel not found');
       return [];
     }
     const rows = charBirthDatePanel.querySelectorAll('.div-table-body .div-table-row.narr_tr');
@@ -338,7 +338,7 @@ class HtmlToJsonConverter {
     }
 
     if (!charRacePanel) {
-      console.error('Characteristics Race panel not found');
+      // console.error('Characteristics Race panel not found');
       return [];
     }
     const rows = charRacePanel.querySelectorAll('.div-table-body .div-table-row.narr_tr');
@@ -363,7 +363,7 @@ class HtmlToJsonConverter {
     }
 
     if (!charEthnicityPanel) {
-      console.error('Characteristics Ethnicity panel not found');
+      // console.error('Characteristics Ethnicity panel not found');
       return [];
     }
     const rows = charEthnicityPanel.querySelectorAll('.div-table-body .div-table-row.narr_tr');

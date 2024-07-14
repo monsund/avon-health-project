@@ -1,5 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
+const xmlbuilder = require('xmlbuilder');
 const DenominatorDeterminer = require("./src/algorithms/denominatorDeterminer");
 const NumeratorDeterminer = require('./src/algorithms/numeratorDeterminer');
 
@@ -31,6 +32,9 @@ const depressionScreeiningProcess = async (inputDirectoryPath) => {
             }
         };
 
+        // Start building the XML document
+        const xmlRoot = xmlbuilder.create('DepressionScreeningResults');
+
          // Process each JSON file
         for (const file of jsonFiles) {
             const filePath = path.join(inputDirectoryPath, file);
@@ -52,13 +56,29 @@ const depressionScreeiningProcess = async (inputDirectoryPath) => {
                 ineligiblePopulation.push(denominatorCheckOutcome.patientData);
             }
         }
+
+        // Add elements to the XML document
+        xmlRoot.ele('EligiblePopulation', { count: eligiblePopulation.length });
+        xmlRoot.ele('IneligiblePopulation', { count: ineligiblePopulation.length });
+        const resultsElement = xmlRoot.ele('Results');
+        Object.entries(result).forEach(([key, count]) => {
+            resultsElement.ele('Result', { key, count });
+        });
+
+        // Convert XML document to string
+        const xmlString = xmlRoot.end({ pretty: true });
+
+        // Write XML string to file
+        await fs.writeFile(outputFilePath, xmlString, 'utf8');
+        console.log(`Results written to ${outputFilePath}`);
     } catch (err) {
         console.error(`Error processing files in directory ${inputDirectoryPath}:`, err);
     }
 };
 
-// Define the input directory path and start the processing
+// Define the input directory path and output directory path
 const inputDirectoryPath = './src/utility/data/output_json';
+const outputFilePath = './src/utility/data/depression_screening_results.xml';
 depressionScreeiningProcess(inputDirectoryPath).then(() => {
     console.log('Processing complete.');
 });
