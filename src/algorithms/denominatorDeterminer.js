@@ -23,7 +23,7 @@ class DenominatorDeterminer {
         const years = duration.years();
         const months = duration.months();
         const days = Math.floor(duration.asDays()) % 365;
-        if (years < 12 || (years > 12 && months < 1 && days < 1)) {
+        if (years < 12 || (years === 12 && months < 1 && days < 1)) {
             return true;
         } else {
             return false;
