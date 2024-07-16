@@ -1,0 +1,44 @@
+{
+    "DepressionScreeningResults": {
+        "EligiblePopulation": [
+            {
+                "count": "35"
+            }
+        ],
+        "IneligiblePopulation": [
+            {
+                "count": "3"
+            }
+        ],
+        "Results": [
+            {
+                "Result": [
+                    {
+                        "key": "bipolar-G9717",
+                        "count": "10"
+                    },
+                    {
+                        "key": "screenIncompleteMedicalReason-G8433",
+                        "count": "8"
+                    },
+                    {
+                        "key": "dataCompletenessNotMet",
+                        "count": "11"
+                    },
+                    {
+                        "key": "screenPositiveFollowUpPlan-G8431",
+                        "count": "2"
+                    },
+                    {
+                        "key": "screenNegativeNoFollowUpPlan-G8510",
+                        "count": "2"
+                    },
+                    {
+                        "key": "screenPositiveNoFollowUpPlan-G8511",
+                        "count": "2"
+                    }
+                ]
+            }
+        ]
+    }
+}

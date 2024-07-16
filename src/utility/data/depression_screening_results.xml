@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<DepressionScreeningResults>
+  <EligiblePopulation count="35"/>
+  <IneligiblePopulation count="3"/>
+  <Results>
+    <Result key="bipolar-G9717" count="10"/>
+    <Result key="screenIncompleteMedicalReason-G8433" count="8"/>
+    <Result key="dataCompletenessNotMet" count="11"/>
+    <Result key="screenPositiveFollowUpPlan-G8431" count="2"/>
+    <Result key="screenNegativeNoFollowUpPlan-G8510" count="2"/>
+    <Result key="screenPositiveNoFollowUpPlan-G8511" count="2"/>
+  </Results>
+</DepressionScreeningResults>
